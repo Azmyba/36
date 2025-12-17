@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SET D – JavaScript Tasks</title>
+<style>
+  body { font-family: Arial, sans-serif; background:#f5f7fa; padding:20px }
+  section { background:#fff; padding:15px; margin-bottom:15px; border-radius:8px }
+  h2 { color:#4f46e5 }
+  input, button { margin:5px 0; padding:6px }
+  .output { margin-top:5px; font-weight:bold }
+</style>
+</head>
+<body>
+
+<h1>SET D – JavaScript Tasks</h1>
+
+<!-- 1 -->
+<section>
+<h2>1. Reverse words order</h2>
+<input id="t1" placeholder="Enter sentence">
+<button onclick="revWords()">Reverse</button>
+<div class="output" id="o1"></div>
+</section>
+
+<!-- 2 -->
+<section>
+<h2>2. Extract characters</h2>
+<input id="t2" placeholder="Enter string">
+<button onclick="extractChars()">Extract</button>
+<div class="output" id="o2"></div>
+</section>
+
+<!-- 3 -->
+<section>
+<h2>3. Longest word</h2>
+<input id="t3" placeholder="Enter sentence">
+<button onclick="longestWord()">Find</button>
+<div class="output" id="o3"></div>
+</section>
+
+<!-- 4 -->
+<section>
+<h2>4. Toggle case</h2>
+<input id="t4">
+<button onclick="toggleCase()">Toggle</button>
+<div class="output" id="o4"></div>
+</section>
+
+<!-- 5 -->
+<section>
+<h2>5. Word & space count</h2>
+<input id="t5">
+<button onclick="countWS()">Count</button>
+<div class="output" id="o5"></div>
+</section>
+
+<!-- 6 -->
+<section>
+<h2>6. Trim extra spaces</h2>
+<input id="t6">
+<button onclick="trimText()">Trim</button>
+<div class="output" id="o6"></div>
+</section>
+
+<!-- 7 -->
+<section>
+<h2>7. Fruits array (3rd element)</h2>
+<button onclick="showFruit()">Show</button>
+<div class="output" id="o7"></div>
+</section>
+
+<!-- 8 -->
+<section>
+<h2>8. Remove duplicates</h2>
+<button onclick="removeDup()">Remove</button>
+<div class="output" id="o8"></div>
+</section>
+
+<!-- 9 -->
+<section>
+<h2>9. Last element (popup)</h2>
+<button onclick="lastElement()">Show</button>
+</section>
+
+<!-- 10 -->
+<section>
+<h2>10. Find index</h2>
+<input id="t10">
+<button onclick="findIndex()">Find</button>
+<div class="output" id="o10"></div>
+</section>
+
+<!-- 11 -->
+<section>
+<h2>11. Arithmetic function</h2>
+<input id="a"> <input id="b">
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">*</button>
+<button onclick="calc('/')">/</button>
+<div class="output" id="o11"></div>
+</section>
+
+<!-- 12 -->
+<section>
+<h2>12. Numeric/String rule</h2>
+<input id="t12">
+<button onclick="numCheck()">Check</button>
+<div class="output" id="o12"></div>
+</section>
+
+<!-- 13 -->
+<section>
+<h2>13. Required field</h2>
+<input id="t13">
+<button onclick="required()">Check</button>
+<div class="output" id="o13"></div>
+</section>
+
+<!-- 14 -->
+<section>
+<h2>14. Age >= 18</h2>
+<input id="age">
+<button onclick="checkAge()">Check</button>
+<div class="output" id="o14"></div>
+</section>
+
+<!-- 15 -->
+<section>
+<h2>15. Signup form</h2>
+<input id="name" placeholder="Name">
+<button onclick="submitForm()">Submit</button>
+<button onclick="resetForm()">Reset</button>
+<div class="output" id="o15"></div>
+</section>
+
+<!-- 16 -->
+<section>
+<h2>16. Display data</h2>
+<button onclick="displayData()">Show</button>
+<div class="output" id="o16"></div>
+</section>
+
+<!-- 17 -->
+<section>
+<h2>17. Reset output</h2>
+<button onclick="clearAll()">Clear</button>
+</section>
+
+<!-- 18 -->
+<section>
+<h2>18. Store 3 persons</h2>
+<button onclick="persons()">Show</button>
+<div class="output" id="o18"></div>
+</section>
+
+<!-- 19 -->
+<section>
+<h2>19. Countdown Timer</h2>
+<button onclick="start()">Start</button>
+<button onclick="pause()">Pause</button>
+<button onclick="reset()">Reset</button>
+<div class="output" id="o19">10</div>
+</section>
+
+<!-- 20 -->
+<section ondblclick="this.querySelector('.output').innerText=''">
+<h2>20. Double click clear</h2>
+<div class="output">Double click this box</div>
+</section>
+
+<script>
+function revWords(){o1.innerText=t1.value.split(' ').reverse().join(' ')}
+function extractChars(){o2.innerText=t2.value[0]+", "+t2.value[2]+", "+t2.value[3]+", "+t2.value[t2.value.length-1]}
+function longestWord(){o3.innerText=t3.value.split(' ').sort((a,b)=>b.length-a.length)[0]}
+function toggleCase(){o4.innerText=[...t4.value].map(c=>c==c.toUpperCase()?c.toLowerCase():c.toUpperCase()).join('')}
+function countWS(){o5.innerText=`Words: ${t5.value.split(' ').length}, Spaces: ${(t5.value.match(/ /g)||[]).length}`}
+function trimText(){o6.innerText=t6.value.trim().replace(/\s+/g,' ')}
+function showFruit(){o7.innerText=["Apple","Banana","Orange","Mango"][2]}
+function removeDup(){o8.innerText=[...new Set([1,2,2,3,4,4])]}
+function lastElement(){alert([10,20,30].pop())}
+function findIndex(){o10.innerText=[5,10,15].indexOf(Number(t10.value))}
+function calc(op){let x=+a.value,y=+b.value;o11.innerText=eval(x+op+y)}
+function numCheck(){o12.innerText=isNaN(t12.value)?"String":"Number"}
+function required(){o13.innerText=t13.value==""?"Required":"OK"}
+function checkAge(){o14.innerText=age.value>=18?"Allowed":"Not allowed"}
+function submitForm(){o15.innerText="Form submitted successfully"}
+function resetForm(){name.value="";o15.innerText=""}
+function displayData(){o16.innerText=name.value}
+function clearAll(){document.querySelectorAll('.output').forEach(o=>o.innerText="")}
+function persons(){o18.innerText=JSON.stringify([{n:"A"},{n:"B"},{n:"C"}])}
+let t=10,i;
+function start(){i=setInterval(()=>{if(t>0)o19.innerText=--t},1000)}
+function pause(){clearInterval(i)}
+function reset(){t=10;o19.innerText=10}
+</script>
+
+</body>
+</html>
